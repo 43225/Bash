@@ -28,14 +28,16 @@ install_usbmuxd() {
             ;;
         "arch")
             sudo pacman -Syu --noconfirm
-			sudo  pacman -S usbmuxd libimobiledevice wget unzip  --noconfirm
+	    sudo su
+			pacman -S usbmuxd libimobiledevice wget unzip  --noconfirm
 			wget "$link" && unzip jitterbugpair.zip
 			chmod +x jitterbugpair
-			sudo systemctl start usbmuxd
+			systemctl start usbmuxd
 			./jitterbugpair
             ;;
         "alpine")
-            sudo apk update && sudo apk upgrade --no-cache -y
+            sudo su
+	    apk update && apk upgrade --no-cache -y
 			apk add --no-cache build-base libtool automake autoconf pkgconfig
 			git clone https://github.com/libimobiledevice-win32/libplist && cd libplist
 			./autogen.sh --without-cython --prefix=/usr
