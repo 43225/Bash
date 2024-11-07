@@ -19,7 +19,7 @@ install_usbmuxd() {
         "fedora")
             sudo su
 			dnf upgrade --refresh
-			dnf install usbmuxd libimobiledevice-utils unzip -y
+			dnf install usbmuxd libimobiledevice-util unzip -y
 			dnf autoremove
 			usbmuxd
 			wget "$link" && unzip jitterbugpair.zip
