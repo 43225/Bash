@@ -29,7 +29,7 @@ install_usbmuxd() {
         "arch")
             sudo pacman -Syu --noconfirm
 	    sudo su
-			pacman -S usbmuxd libimobiledevice-util wget unzip  --noconfirm
+			pacman -S usbmuxd libimobiledevice wget unzip  --noconfirm
 			wget "$link" && unzip jitterbugpair.zip
 			chmod +x jitterbugpair
 			systemctl start usbmuxd
